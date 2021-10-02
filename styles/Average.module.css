@@ -6,6 +6,25 @@
     margin-top: 5%;
 }
 
+.iconContainer{
+    padding-top: 2%;
+}
+.icon{
+    font-size: 2rem;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+.icon:hover{
+    background-color: black;
+    color: white;
+}
+
 .btnContainer{
+    margin-top: 3%;
+    color: black;
+    border-color: black;
+}
+
+.resultContainer{
     margin-top: 5%;
 }

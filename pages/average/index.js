@@ -1,10 +1,18 @@
-import { Button, Grid, TextField } from "@mui/material";
+import { Button, Grid, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import styles from "../../styles/Average.module.css";
+import AddIcon from '@mui/icons-material/Add';
 
 export default function AverageCalc() {
-  const [quantity, setQuantity] = useState();
-  const [value, setValue] = useState();
+  const [quantity, setQuantity] = useState(1);
+  const [value, setValue] = useState(1);
+  const [total, setTotal] = useState();
+
+  const handleClick = () => {
+    setTotal(value/quantity)
+  }
+  
+
   return (
     <>
       <Grid container className={styles.container}>
@@ -48,11 +56,25 @@ export default function AverageCalc() {
                 />
               </Grid>
             </Grid>
-            <Button variant="outlined" className={styles.btnContainer}>
+          </Grid>
+            <Grid container className={styles.iconContainer}>
+            <AddIcon className={styles.icon}/>
+            </Grid>
+            <Button variant="outlined" className={styles.btnContainer} onClick={handleClick}>
               Calculate
             </Button>
-          </Grid>
         </Grid>
+        {
+            total && 
+        <Grid item xs={12} className={styles.resultContainer}>
+            <Typography>
+                Average price : {(total == Infinity)? 0 : total.toFixed(3)}
+            </Typography>
+            <Typography>
+                Cash Used : {quantity*value}
+            </Typography>
+        </Grid>
+        }
       </Grid>
     </>
   );
