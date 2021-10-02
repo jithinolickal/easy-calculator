@@ -2,7 +2,7 @@ import { Button, Grid, TextField } from "@mui/material";
 import { useState } from "react";
 import styles from "../../styles/Average.module.css";
 
-export default function averageCalc() {
+export default function AverageCalc() {
   const [quantity, setQuantity] = useState();
   const [value, setValue] = useState();
   return (
